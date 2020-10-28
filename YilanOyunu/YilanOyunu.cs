@@ -35,6 +35,7 @@ public class YilanOyunu : MonoBehaviour {
     Kaç karede bir hareket işlemini gerçekleştirdiğimiz belirlediğimiz değişken.
     Bu haliyle 6 defa update çağırıldıktan sonra işlem yapıyoruz. 
     */
+    [SerializeField]
     int hareketSuresi = 6;
 
     bool yemYedi = false;
@@ -80,7 +81,7 @@ public class YilanOyunu : MonoBehaviour {
             if (Physics.Raycast (yemRay, out RaycastHit yemHit, 1f)) {
                 if (yemHit.collider.tag == "Yem") {
                     yemYedi = true;
-                    //yem yerini değiştir;
+                    YemYe (yemHit.transform);
                 } else {
                     Sifirla ();
                 }
